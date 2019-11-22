@@ -71,6 +71,7 @@
 					<td v-for="(column, columnIndex) in columns"
 						:key="columnIndex"
 						:class="{ numeric : column.numeric }"
+						:data-label="column.label"
 					>
 						<div v-if="!column.html">
 							{{ collect(row, column.field) }}
@@ -804,6 +805,13 @@
 
 	table th:first-child, table td:first-child {
 		padding-left: 24px;
+	}
+	
+	table td:before {
+		content: attr(data-label);
+		float: left;
+		text-transform: uppercase;
+		font-weight: bold;
 	}
 
 	.rtl {
