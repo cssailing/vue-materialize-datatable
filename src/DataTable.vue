@@ -31,6 +31,7 @@
 					@click="search"
 				>
 					<i class="material-icons">search</i>
+					{{lang['search_data']}}
 				</a>
 			</div>
 		</div>
@@ -71,6 +72,7 @@
 					<td v-for="(column, columnIndex) in columns"
 						:key="columnIndex"
 						:class="{ numeric : column.numeric }"
+						:data-label="column.label"
 					>
 						<div v-if="!column.html">
 							{{ collect(row, column.field) }}
@@ -809,4 +811,16 @@
 	.rtl {
 		direction: rtl;
 	}
+	
+/**
+*移动端 table td 竖排显示
+ */
+@media screen and (max-width: 500px){
+    table  td:before {content: attr(data-label);float: left;text-transform: uppercase;font-weight: bold;}
+}
+table th {border-bottom: 0.125rem solid #dee2e6}
+/**
+* 去掉翻页 li 的点
+*/
+li {list-style-type:none;}
 </style>
