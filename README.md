@@ -357,6 +357,7 @@ true (default) // Whether printable
 You can use the property `locale` to set the display language. Available languages:
 
 - `en` (English, default)
+- `cn` (简体中文)
 - `ar` (Arabic)
 - `es` (Spanish)
 - `cat` (Catalan)
